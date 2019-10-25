@@ -51,9 +51,9 @@ def deletestd():
             file=open("data/database/Directory",'r')
             text=file.read()
             file.close()
-            lst=text.split()                  #converting string to list 
+            lst=text.split()                  
             lst.remove(roll)
-            str=''.join(lst)                  #converting list to string
+            str=''.join(lst)                  
             file2=open("data/database/Directory",'w')
             file2.write(str)
             file2.close()
