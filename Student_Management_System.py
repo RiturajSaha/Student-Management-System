@@ -1,26 +1,27 @@
-# modules
+# libraries
 import os
 import shutil
 import sys
 import datetime
 
-#golbal variables
+
+# golbal variables
 n=0
-acesscode="r2j"
+acesscode="R2J"
 stud={}
 top=""
 
 
-#methods
+# methods
 def ext():
     input("\nPress [enter] to continue...")
     main()
       
 def password():
-    
-    pas=input("\nEnter Acesscode-\n")
+    print("\n**********Student Management System For Higher Education**********\n\n")
+    pas=input("\nEnter Access code: ")
     if pas!=acesscode:
-             print("\nWrong Acesscode!")
+             print("\nWrong Access code!")
              n=input("\nWant to Enter Again(1/0)- ")
              if n=='1':
                  os.system("cls")
@@ -42,7 +43,7 @@ def directory():
     file.write(text)
     file.close() 
 
-def deletestd():
+def deleteStd():
     os.system("cls")
     roll=input("Enter Roll Number of the Student- ")
     rollno="data/database/"+roll
@@ -51,7 +52,7 @@ def deletestd():
             file=open("data/database/Directory",'r')
             text=file.read()
             file.close()
-            lst=text.split()                  
+            lst=text.split()                   
             lst.remove(roll)
             str=''.join(lst)                  
             file2=open("data/database/Directory",'w')
@@ -62,7 +63,7 @@ def deletestd():
         print(roll," Not Found!")
     ext()    
 
-def update():
+def updateStd():
     os.system("cls")
     roll=input("Enter Roll Number of the Student- ")
     rollno="data/database/"+roll
@@ -84,15 +85,15 @@ def update():
         print(roll," Not Found!")
     ext()    
 
-def deleteall():
+def deleteAll():
     os.system("cls")
     print("\nFormatting Database!")
-    print("However the Acesscode will remain unchanged!")
+    print("However the Access code will remain unchanged!")
     o=input("Are you  sure (1/0)?")
     if o=='1':
-        pas=input("\nEnter Acesscode-\n")
+        pas=input("\nEnter Access code-\n")
         if pas!=acesscode:
-             print("\nWrong Acesscode!")
+             print("\nWrong Access code!")
              print("\nReset Aborted!")
              ext()
         else:
@@ -105,7 +106,7 @@ def deleteall():
          print("Reset Failed!")
          ext()
            
-def createstd():
+def createStd():
       
       os.system("cls")
       rollno=input("\nEnter Roll Number- ")
@@ -125,8 +126,7 @@ def createstd():
           
       ext()
       
-
-def displayall():
+def displayAll():
     os.system("cls")
     if os.path.isfile("data/database/Directory")==False:
         print("\nNothing Found!")
@@ -139,7 +139,7 @@ def displayall():
         print(rnos)
     ext()
     
-def displaystd():
+def displayStd():
     
     os.system("cls")
     rollno=input("\nEnter Roll Number- ")
@@ -155,24 +155,24 @@ def displaystd():
          print(rollno," not found!")
     ext()
     
-def changeacesscode():
+def changeAcesscode():
     
     os.system("cls")
-    text=input("\nEnter Old Acesscode- ")
+    text=input("\nEnter Old Access code- ")
     file=open("data/imp/Acesscode",'r')
     acesscode=file.readline()
     file.close()
     if text==acesscode:
         print("\nPassword should be atmost 8 characters...") 
-        newp=input("\nEnter New Acesscode- ")
+        newp=input("\nEnter New Access code- ")
         if len(newp)>8:
-                 print("Invalid Acesscode!")
+                 print("Invalid Access code!")
                  o=input("Press 1 to enter again...")
                  if o=='1':
-                     changeacesscode()
+                     changeAcesscode()
                      
                  else:
-                     print("Acesscode Change Failed!") 
+                     print("Access code Change Failed!") 
                      
                      
         else:
@@ -186,7 +186,7 @@ def changeacesscode():
              print("Wrong Password Entered!")
     ext()         
 
-def displaytoppers():
+def displayToppers():
     os.system("cls")
     if os.path.isfile("data/database/Toppers")==False:
           print("Nothing Found!")
@@ -197,15 +197,15 @@ def displaytoppers():
          file.close()
     ext()
     
-def deltoppers():
+def delToppers():
     os.system("cls")
     print("\nDeleting Top Performers Record!")
     print("However the Data of the Top Performers will remain unchanged!")
     o=input("Are you  sure (1/0)?")
     if o=='1':
-        pas=input("\nEnter Acesscode-\n")
+        pas=input("\nEnter Access code-\n")
         if pas!=acesscode:
-             print("\nWrong Acesscode!")
+             print("\nWrong Access code!")
              print("\nAction Aborted!")
              
         else:
@@ -220,37 +220,37 @@ def main():
     os.system("cls")
     print("\n\nMAIN MENU:-")
     print("----------")
-    print("\n 1)Create")
-    print(" 2)Display")
-    print(" 3)Display All")
-    print(" 4)Display Top Performers")
-    print(" 5)Delete")
-    print(" 6)Update")
-    print(" 7)Delete Top Performer Records")
-    print(" 8)Change Acesscode")
-    print(" 9)Reset")
+    print("\n 1) Create A Student Data")
+    print(" 2) Display Data Of Particular Student")
+    print(" 3) Display Data Of All Students")
+    print(" 4) Display Top Performers")
+    print(" 5) Delete Data Of A Particular Student")
+    print(" 6) Update Data Of A Particular Student")
+    print(" 7) Delete Top Performer Records")
+    print(" 8) Change Access code")
+    print(" 9) Reset Database")
     
     
     print("\nEnter 0 to Exit")
     o=input("\nEnter option- ")
     if o=='1':
-       createstd()
+       createStd()
     elif o=='2':   
-       displaystd()
+       displayStd()
     elif o=='3':
-       displayall()
+       displayAll()
     elif o=='4':
-        displaytoppers()
+        displayToppers()
     elif o=='5':
-        deletestd()
+        deleteStd()
     elif o=='6':
-        update()
+        updateStd()
     elif o=='7':
-        deltoppers()              
+        delToppers()              
     elif o=='8':
-        changeacesscode()
+        changeAcesscode()
     elif o=='9':
-        deleteall()
+        deleteAll()
 
     elif o=='0':
        print("\nProgram Terminating!")
@@ -263,7 +263,7 @@ def main():
         main()
 
        
-#classes
+# classes
 class Student:                 
      __name=None
      __branch=None     
@@ -351,18 +351,13 @@ class Student:
                 ext()   
          
                
-              
-        
-         
      def display(self):
          print(self.__grade)
          
 
 
-
+# main
 os.system("cls")
-
-print("\n**********Student Management System For Btech**********\n\n")
 
 file=open("data/imp/Acesscode",'r')
 acesscode=file.readline()
@@ -371,9 +366,5 @@ file.close()
 if os.path.isdir("data/database")==False:
        os.mkdir("data/database") 
 
-
+        
 password()
-
-
-
-
