@@ -19,4 +19,4 @@ A management system of college student attributes such as marks, personal detail
 - Change Access code
 - Reset Database
 
-**Acesscode:** 55555 *(can be modified)*
+**Accesscode:** 55555 *(can be modified)*
