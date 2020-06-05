@@ -10,7 +10,7 @@ A management system of college student attributes such as marks, personal detail
 
 **Functionalities:**
 - Create A Student Data
-- Display Data Of Particular Student
+- Display Data Of A Particular Student
 - Display Data Of All Students
 - Display Top Performers
 - Delete Data Of A Particular Student
